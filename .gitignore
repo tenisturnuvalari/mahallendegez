@@ -1,0 +1,18 @@
+# Bağımlılıklar
+node_modules/
+
+# Günlükler
+*.log
+npm-debug.log*
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Editör
+.vscode/
+.idea/
+
+# Yerel ortam
+.env
+.env.local

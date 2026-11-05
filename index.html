@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahallende Gez — Mahallendeki keşfedilecek yerler</title>
+  <meta name="description" content="Mahallendeki kahvecileri, parkları, tarihi yerleri ve daha fazlasını keşfet.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">🧭 Mahallende<span>Gez</span></a>
+      <nav class="nav">
+        <a href="#kesfet">Keşfet</a>
+        <a href="#hakkinda">Hakkında</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Mahallende ne var ne yok?</h1>
+      <p>Uzaklara gitmene gerek yok. Mahallendeki kahvecileri, parkları, tarihi noktaları ve saklı köşeleri keşfet.</p>
+
+      <div class="search-box">
+        <input type="search" id="searchInput" placeholder="Yer, kategori veya mahalle ara..." aria-label="Ara">
+        <button id="searchBtn" type="button">Ara</button>
+      </div>
+
+      <div class="filters" id="categoryFilters" role="group" aria-label="Kategori filtreleri">
+        <button class="filter-btn active" data-category="all">Tümü</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="kesfet">
+      <div class="section-head">
+        <h2>Keşfedilecek yerler</h2>
+        <span id="resultCount" class="result-count"></span>
+      </div>
+      <div id="placesGrid" class="places-grid" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state" hidden>Aramana uyan yer bulamadı. Başka bir kelime dene!</p>
+    </section>
+
+    <section id="hakkinda" class="about">
+      <h2>Bu proje nedir?</h2>
+      <p>
+        <strong>Mahallende Gez</strong>, yaşadığın mahalleyi yeniden keşfetmeni sağlayan basit bir web uygulamasıdır.
+        Favori yerlerini ekle, komşularınla paylaş ve mahallendeki güzellikleri ortaya çıkar.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Mahallende Gez · MIT lisansıyla açık kaynak</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
