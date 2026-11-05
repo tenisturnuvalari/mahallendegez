@@ -3,63 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahallende Gez — Mahallendeki keşfedilecek yerler</title>
-  <meta name="description" content="Mahallendeki kahvecileri, parkları, tarihi yerleri ve daha fazlasını keşfet.">
+  <title>Mahallende Gez — Ankara mahalle anıları, 3B'de canlanır</title>
+  <meta name="description" content="Ankara'da eski mahalle fotoğraflarını yükle, 3 boyutlu görüntüde anılarını canlandır.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">🧭 Mahallende<span>Gez</span></a>
-      <nav class="nav">
-        <a href="#kesfet">Keşfet</a>
-        <a href="#hakkinda">Hakkında</a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html" class="active">Galeri</a>
+        <a href="upload.html">Anı Yükle</a>
+        <span id="authArea"></span>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="container">
-      <h1>Mahallende ne var ne yok?</h1>
-      <p>Uzaklara gitmene gerek yok. Mahallendeki kahvecileri, parkları, tarihi noktaları ve saklı köşeleri keşfet.</p>
-
-      <div class="search-box">
-        <input type="search" id="searchInput" placeholder="Yer, kategori veya mahalle ara..." aria-label="Ara">
-        <button id="searchBtn" type="button">Ara</button>
-      </div>
-
-      <div class="filters" id="categoryFilters" role="group" aria-label="Kategori filtreleri">
-        <button class="filter-btn active" data-category="all">Tümü</button>
+      <span class="eyebrow">Ankara · Mahalle Anıları</span>
+      <h1>Eski mahallen, <em>3 boyutta</em> yeniden karşında</h1>
+      <p>
+        Büyüdüğün sokağın, apartmanının, bakkalının fotoğraflarını yükle.
+        Her kare 3B görüntüye dönüşür; fareyle gezin, telefonu eğ —
+        seni eski anına götüren sokağa geri dön.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="upload.html">📷 Fotoğrafını Yükle</a>
+        <a class="btn btn-ghost" href="#galeri">Anıları Keşfet</a>
       </div>
     </div>
   </section>
 
   <main class="container">
-    <section id="kesfet">
+    <section id="galeri">
       <div class="section-head">
-        <h2>Keşfedilecek yerler</h2>
-        <span id="resultCount" class="result-count"></span>
+        <h2>Anılar Galerisi</h2>
+        <div class="toolbar">
+          <input type="search" id="searchInput" placeholder="Mahalle, başlık veya yıl ara..." aria-label="Ara">
+          <span id="resultCount" class="result-count"></span>
+        </div>
       </div>
-      <div id="placesGrid" class="places-grid" aria-live="polite"></div>
-      <p id="emptyState" class="empty-state" hidden>Aramana uyan yer bulamadı. Başka bir kelime dene!</p>
+
+      <div class="filters" id="districtFilters" role="group" aria-label="İlçe filtreleri"></div>
+
+      <div id="memoriesGrid" class="memories-grid" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state" hidden>
+        Sonuç yok. Başka bir arama dene ya da ilk anıyı sen yükle!
+      </p>
+      <div id="loadState" class="load-state">Anılar yükleniyor…</div>
     </section>
 
-    <section id="hakkinda" class="about">
-      <h2>Bu proje nedir?</h2>
-      <p>
-        <strong>Mahallende Gez</strong>, yaşadığın mahalleyi yeniden keşfetmeni sağlayan basit bir web uygulamasıdır.
-        Favori yerlerini ekle, komşularınla paylaş ve mahallendeki güzellikleri ortaya çıkar.
-      </p>
+    <section class="steps" id="nasil">
+      <h2>Nasıl çalışır?</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <span class="step-num">1</span>
+          <h3>Yükle</h3>
+          <p>Eski mahalle fotoğrafını seç, başlığını ve anını yaz.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <h3>3B'ye dön</h3>
+          <p>Fotoğrafın derinlik efektiyle 3 boyutlu görüntüye dönüşür.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h3>Canlandır</h3>
+          <p>Fareyle gezin veya telefonu eğ — sokağa adım at.</p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 Mahallende Gez · MIT lisansıyla açık kaynak</p>
+      <p>© 2026 Mahallende Gez · Ankara mahalle anıları · MIT lisansıyla açık kaynak</p>
     </div>
   </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/tilt.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/gallery.js"></script>
 </body>
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anı Yükle — Mahallende Gez</title>
+  <meta name="description" content="Eski mahalle fotoğrafını yükle, 3B görüntüde canlandır.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">🧭 Mahallende<span>Gez</span></a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html">Galeri</a>
+        <a href="upload.html" class="active">Anı Yükle</a>
+        <span id="authArea"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container narrow">
+    <h1 class="page-title">Anı Yükle</h1>
+    <p class="page-sub">Fotoğrafını seç, mahallenin adını yaz — 3B'de canlansın.</p>
+
+    <div id="demoBanner" class="banner" hidden>
+      ⚠️ <strong>Demo modu:</strong> Supabase bağlanmadı. Anıların şu an bu tarayıcıda
+      (yerel olarak) saklanıyor. Kalıcı olması için <code>js/config.js</code> dosyasına
+      Supabase anahtarlarını gir.
+    </div>
+
+    <div id="authGate" class="auth-gate" hidden>
+      <p>📌 Anı yüklemek için giriş yapmalısın.</p>
+      <a class="btn btn-primary" id="gateLogin" href="auth.html">Giriş yap / Kayıt ol</a>
+    </div>
+
+    <form id="uploadForm" class="upload-form" hidden>
+      <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Fotoğraf seç">
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <div id="dropHint" class="drop-hint">
+          <span class="drop-icon">🖼️</span>
+          <strong>Fotoğrafı buraya sürükle</strong>
+          <span>ya da tıklayıp seç · JPG / PNG / WEBP</span>
+        </div>
+        <div id="previewWrap" class="preview-wrap" hidden>
+          <div class="tilt" data-tilt data-tilt-max="10">
+            <div class="tilt-inner">
+              <img id="previewImg" src="" alt="Önizleme">
+              <span class="shine"></span>
+            </div>
+          </div>
+          <button type="button" class="link-btn" id="clearPhoto">Farklı fotoğraf seç</button>
+        </div>
+      </div>
+
+      <label class="field">
+        <span>Başlık *</span>
+        <input type="text" id="titleInput" maxlength="120" required placeholder="Örn: Apartman boşluğunda top oyunu">
+      </label>
+
+      <div class="field-row">
+        <label class="field">
+          <span>İlçe *</span>
+          <select id="districtSelect" required></select>
+        </label>
+        <label class="field">
+          <span>Mahalle</span>
+          <input type="text" id="neighborhoodInput" maxlength="80" placeholder="Örn: Bahçelievler">
+        </label>
+      </div>
+
+      <div class="field-row">
+        <label class="field">
+          <span>Dönem / Yıl</span>
+          <select id="yearSelect"></select>
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Anın</span>
+        <textarea id="storyInput" rows="4" maxlength="1000"
+          placeholder="Bu fotoğraf nerede, ne zaman çekildi? Hatırladığın bir ayrıntı yaz…"></textarea>
+      </label>
+
+      <p id="formStatus" class="form-status" role="status"></p>
+
+      <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+        📤 Galeriye Yükle
+      </button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Mahallende Gez · Ankara mahalle anıları · MIT lisansıyla açık kaynak</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/tilt.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>

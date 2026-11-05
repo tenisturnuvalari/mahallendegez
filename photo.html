@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anı — Mahallende Gez</title>
+  <meta name="description" content="Mahalle anısını 3 boyutlu görüntüde canlandır.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">🧭 Mahallende<span>Gez</span></a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html">Galeri</a>
+        <a href="upload.html">Anı Yükle</a>
+        <span id="authArea"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container photo-page">
+    <a class="back-link" href="index.html">← Galeriye dön</a>
+
+    <div id="photoNotFound" class="empty-state" hidden>
+      Bu anı bulunamadı. <a href="index.html">Galeriye dön</a>
+    </div>
+
+    <div id="photoView" hidden>
+      <div class="stage" data-tilt data-tilt-max="16">
+        <div class="tilt-inner stage-inner">
+          <img id="photoImage" src="" alt="">
+          <span class="shine"></span>
+        </div>
+      </div>
+
+      <div class="stage-controls">
+        <p class="stage-hint" id="stageHint">🖱️ Fareyi fotoğrafın üzerinde gezdir</p>
+        <button type="button" class="btn btn-ghost btn-sm" id="gyroBtn">📱 Telefonda 3B'ye geç</button>
+      </div>
+
+      <div class="photo-layout">
+        <article class="photo-info">
+          <div class="photo-meta">
+            <span class="year-badge" id="photoYear"></span>
+            <span class="place-tag" id="photoPlace"></span>
+          </div>
+          <h1 id="photoTitle"></h1>
+          <p class="photo-story" id="photoStory"></p>
+          <p class="photo-credit" id="photoCredit"></p>
+        </article>
+
+        <aside class="photo-nav-card">
+          <h3>Diğer anılar</h3>
+          <a class="nav-mem" id="prevMem" href="#">← Önceki</a>
+          <a class="nav-mem" id="nextMem" href="#">Sonraki →</a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Mahallende Gez · Ankara mahalle anıları · MIT lisansıyla açık kaynak</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/tilt.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/photo.js"></script>
+</body>
+</html>

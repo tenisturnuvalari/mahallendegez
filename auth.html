@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giriş / Kayıt — Mahallende Gez</title>
+  <meta name="description" content="Mahallende Gez hesabına giriş yap veya kayıt ol.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">🧭 Mahallende<span>Gez</span></a>
+      <nav class="nav" id="mainNav">
+        <a href="index.html">Galeri</a>
+        <a href="upload.html">Anı Yükle</a>
+        <span id="authArea"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container narrow">
+    <div class="auth-card">
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab active" data-mode="login" role="tab">Giriş Yap</button>
+        <button class="auth-tab" data-mode="signup" role="tab">Kayıt Ol</button>
+      </div>
+
+      <h1 id="authTitle">Tekrar hoş geldin</h1>
+      <p class="page-sub" id="authSub">Anılarını yüklemeye devam etmek için giriş yap.</p>
+
+      <form id="authForm">
+        <label class="field">
+          <span>E-posta</span>
+          <input type="email" id="emailInput" required autocomplete="email" placeholder="ornek@eposta.com">
+        </label>
+        <label class="field">
+          <span>Şifre</span>
+          <input type="password" id="passwordInput" required minlength="6" autocomplete="current-password" placeholder="En az 6 karakter">
+        </label>
+
+        <p id="authStatus" class="form-status" role="status"></p>
+
+        <button type="submit" class="btn btn-primary btn-block" id="authBtn">Giriş Yap</button>
+      </form>
+
+      <p class="auth-note" id="authNote" hidden>
+        📧 Kayıt olduktan sonra e-postana bir onay bağlantısı gelebilir. Bağlantıya tıklayıp
+        sonra giriş yap.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Mahallende Gez · Ankara mahalle anıları · MIT lisansıyla açık kaynak</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/tilt.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
